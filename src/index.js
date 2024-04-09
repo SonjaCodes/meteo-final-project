@@ -56,13 +56,21 @@ function handleSearchSubmit(event) {
 }
 
 function displayForecast() {
-  let forecast = document.querySelector("#forecast");
+  let days = ["Wed", "Thu", "Fri", "Sat", "Sun"];
+  let forecastHTML = "";
 
-  forecast.innerHTML = `
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
     <div class="weather-forecast-day">
-      <div class="weather-forecast-date">Tue</div>
+      <div class="weather-forecast-date">${day}</div>
     </div>
     `;
+  });
+  
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = forecastHTML;
 }
 
 let searchFormElement = document.querySelector("#search-form");
